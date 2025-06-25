@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
 import { useWishlist } from '../context/WishlistContext'
@@ -8,11 +8,27 @@ export default function Navbar() {
   const { wishlistCount, wishlistItems } = useWishlist()
   const [showCartDropdown, setShowCartDropdown] = useState(false)
   const [showWishlistDropdown, setShowWishlistDropdown] = useState(false)
+  const [animateCart, setAnimateCart] = useState(false)
+  const [animateWishlist, setAnimateWishlist] = useState(false)
   const location = useLocation()
   const isHomePage = location.pathname === '/'
+  
+  useEffect(() => {
+    if (cartCount > 0) {
+      setAnimateCart(true);
+      setTimeout(() => setAnimateCart(false), 1000);
+    }
+  }, [cartCount]);
+  
+  useEffect(() => {
+    if (wishlistCount > 0) {
+      setAnimateWishlist(true);
+      setTimeout(() => setAnimateWishlist(false), 1000);
+    }
+  }, [wishlistCount]);
 
   return (
-    <div className={`navbar shadow-lg px-4 ${
+    <div className={`navbar shadow-lg px-2 md:px-4 py-1 md:py-2 ${
       isHomePage 
         ? 'bg-purple-600 text-white' 
         : 'bg-white text-black'
@@ -45,7 +61,7 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <div className="dropdown dropdown-end">
             <div className="indicator">
-              <span className="indicator-item badge badge-secondary badge-sm">{cartCount}</span>
+              {cartCount > 0 && <span className={`indicator-item badge badge-secondary badge-sm ${animateCart ? 'animate-bounce' : ''}`}>{cartCount}</span>}
               <button 
                 tabIndex={0} 
                 className="btn btn-ghost btn-circle"
@@ -96,7 +112,7 @@ export default function Navbar() {
           </div>
           <div className="dropdown dropdown-end">
             <div className="indicator">
-              <span className="indicator-item badge badge-secondary badge-sm">{wishlistCount}</span>
+              {wishlistCount > 0 && <span className={`indicator-item badge badge-secondary badge-sm ${animateWishlist ? 'animate-bounce' : ''}`}>{wishlistCount}</span>}
               <button 
                 tabIndex={0} 
                 className="btn btn-ghost btn-circle"

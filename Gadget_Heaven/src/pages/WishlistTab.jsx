@@ -24,7 +24,7 @@ export default function WishlistTab() {
       ) : (
         <div className="space-y-4">
           {wishlistItems.map(item => (
-            <div key={item.product_id} className="bg-white rounded-lg shadow-md p-6 flex items-center gap-6">
+            <div key={item.product_id} className="bg-white rounded-lg shadow-md p-4 md:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4 md:gap-6">
               <img 
                 src={item.product_image} 
                 alt={item.product_title}
@@ -38,17 +38,17 @@ export default function WishlistTab() {
                   {item.availability ? 'In Stock' : 'Out of Stock'}
                 </span>
               </div>
-              <div className="flex gap-2">
+              <div className="flex gap-2 w-full sm:w-auto mt-3 sm:mt-0">
                 <button 
                   onClick={() => handleMoveToCart(item)}
                   disabled={!item.availability}
-                  className={`btn btn-primary btn-sm ${!item.availability ? 'btn-disabled' : ''}`}
+                  className={`btn btn-primary btn-sm flex-1 sm:flex-none ${!item.availability ? 'btn-disabled' : ''}`}
                 >
                   Add to Cart
                 </button>
                 <button 
                   onClick={() => removeFromWishlist(item.product_id)}
-                  className="btn btn-error btn-sm"
+                  className="btn btn-error btn-sm flex-1 sm:flex-none"
                 >
                   Remove
                 </button>

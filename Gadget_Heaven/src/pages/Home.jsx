@@ -20,8 +20,8 @@ export default function Home() {
   return (
     <div>
       <Banner />
-      <div id="products-section" className="container mx-auto px-4 py-8 mt-[400px]">
-        <h1 className='font-extrabold text-center text-5xl p-10'>Explore Cutting-Edge Gadgets</h1>
+      <div id="products-section" className="container mx-auto px-4 py-8 mt-[200px] sm:mt-[300px] md:mt-[400px]">
+        <h1 className='font-extrabold text-center text-2xl sm:text-3xl md:text-5xl p-4 md:p-10'>Explore Cutting-Edge Gadgets</h1>
         <div className="flex flex-col lg:flex-row gap-6">
           <div className="lg:w-1/4">
             <CategorySidebar 
