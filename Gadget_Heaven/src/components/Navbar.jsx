@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
 import { useWishlist } from '../context/WishlistContext'
 
@@ -8,9 +8,15 @@ export default function Navbar() {
   const { wishlistCount, wishlistItems } = useWishlist()
   const [showCartDropdown, setShowCartDropdown] = useState(false)
   const [showWishlistDropdown, setShowWishlistDropdown] = useState(false)
+  const location = useLocation()
+  const isHomePage = location.pathname === '/'
 
   return (
-    <div className="navbar bg-base-100 bg-purple-600 text-white shadow-lg px-4">
+    <div className={`navbar shadow-lg px-4 ${
+      isHomePage 
+        ? 'bg-purple-600 text-white' 
+        : 'bg-white text-black'
+    }`}>
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -18,13 +24,13 @@ export default function Navbar() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16"></path>
             </svg>
           </div>
-          <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+          <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 text-black">
             <li><Link to="/">Home</Link></li>
             <li><Link to="/stats">Statistics</Link></li>
             <li><Link to="/dashboard">Dashboard</Link></li>
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost text-xl font-bold">Gadget Heaven</Link>
+        <Link to="/" className="text-xl font-bold">Gadget Heaven</Link>
       </div>
       
       <div className="navbar-center hidden lg:flex">
@@ -127,7 +133,7 @@ export default function Navbar() {
                   {wishlistItems.length > 0 && (
                     <div className="mt-4 pt-2 border-t">
                       <Link 
-                        to="/dashboard" 
+                        to="/dashboard?tab=wishlist" 
                         className="btn btn-primary btn-sm w-full"
                         onClick={() => setShowWishlistDropdown(false)}
                       >

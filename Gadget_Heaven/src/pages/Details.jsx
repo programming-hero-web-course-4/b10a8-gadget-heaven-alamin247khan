@@ -4,7 +4,7 @@ import productsData from '../data/products.json'
 import RatingStars from '../components/RatingStars'
 import { useCart } from '../context/CartContext'
 import { useWishlist } from '../context/WishlistContext'
-import { toast } from 'react-toastify'
+
 
 export default function Details() {
   const { id } = useParams()
@@ -30,7 +30,7 @@ export default function Details() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="bg-purple-600 text-white py-8">
+      <div className="bg-purple-600 text-white py-8 pb-50">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-3xl font-bold mb-4">Product Details</h1>
           <p className="text-lg opacity-90">
@@ -39,7 +39,7 @@ export default function Details() {
         </div>
       </div>
       
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-8 relative mt-[-150px]">
         <div className="bg-white rounded-lg shadow-md p-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div>

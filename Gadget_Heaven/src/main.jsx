@@ -11,7 +11,7 @@ import Stats from './pages/Stats';
 import Dashboard from './pages/Dashboard';
 import Details from './pages/Details';
 import NotFound from './pages/NotFound';
-import ExtraPage from './pages/ExtraPage';
+
 
 const router = createBrowserRouter([
   {
@@ -35,10 +35,7 @@ const router = createBrowserRouter([
         path: "/product/:id",
         element: <Details />,
       },
-      {
-        path: "/extra",
-        element: <ExtraPage />,
-      },
+
     ],
   },
 ]);

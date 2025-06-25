@@ -1,5 +1,5 @@
 import React from 'react'
-import { ComposedChart, Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
+import { ComposedChart, Bar, Area, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 import productsData from '../data/products.json'
 
 export default function Stats() {
@@ -44,7 +44,7 @@ export default function Stats() {
                 <Tooltip />
                 <Legend />
                 <Bar dataKey="Count" fill="#8B5CF6" name="Product Count" />
-                <Bar dataKey="AvgPrice" fill="#A78BFA" name="Avg Price ($)" />
+                <Area type="monotone" dataKey="AvgPrice" fill="#A78BFA" stroke="#8B5CF6" name="Avg Price ($)" />
                 <Line type="monotone" dataKey="Rating" stroke="#EF4444" strokeWidth={3} name="Avg Rating" />
               </ComposedChart>
             </ResponsiveContainer>
