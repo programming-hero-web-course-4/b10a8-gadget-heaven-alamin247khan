@@ -1,9 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import CartTab from './CartTab'
 import WishlistTab from './WishlistTab'
 
 export default function Dashboard() {
+  const location = useLocation()
   const [activeTab, setActiveTab] = useState('cart')
+  
+  useEffect(() => {
+    // Check if there's a tab parameter in the URL
+    const params = new URLSearchParams(location.search)
+    const tabParam = params.get('tab')
+    if (tabParam === 'wishlist') {
+      setActiveTab('wishlist')
+    }
+  }, [location])
 
   return (
     <div className="min-h-screen bg-gray-50">
