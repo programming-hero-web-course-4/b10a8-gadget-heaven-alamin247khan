@@ -28,7 +28,6 @@ export default function Footer() {
               <li>Contact</li>
             </ul>
           </div>
-          
           <div>
             <h3 className="font-semibold text-base sm:text-lg mb-3 sm:mb-4">Legal</h3>
             <ul className="space-y-2 text-gray-600">
