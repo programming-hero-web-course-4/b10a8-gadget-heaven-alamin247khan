@@ -13,28 +13,28 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold text-base sm:text-lg mb-3 sm:mb-4">Services</h3>
             <ul className="space-y-2 text-gray-600">
-              <li><a>Product Support</a></li>
-              <li><a>Order Tracking</a></li>
-              <li><a>Shipping & Delivery</a></li>
-              <li><a>Returns</a></li>
+              <li>Product Support</li>
+              <li>Order Tracking</li>
+              <li>Shipping & Delivery</li>
+              <li>Returns</li>
             </ul>
           </div>
           
           <div>
             <h3 className="font-semibold text-base sm:text-lg mb-3 sm:mb-4">Company</h3>
             <ul className="space-y-2 text-gray-600">
-              <li><a>About Us</a></li>
-              <li><a>Careers</a></li>
-              <li><a>Contact</a></li>
+              <li>About Us</li>
+              <li>Careers</li>
+              <li>Contact</li>
             </ul>
           </div>
           
           <div>
             <h3 className="font-semibold text-base sm:text-lg mb-3 sm:mb-4">Legal</h3>
             <ul className="space-y-2 text-gray-600">
-              <li><a>Terms of Service</a></li>
-              <li><a>Privacy Policy</a></li>
-              <li><a>Cookie Policy</a></li>
+              <li>Terms of Service</li>
+              <li>Privacy Policy</li>
+              <li>Cookie Policy</li>
             </ul>
           </div>
         </div>
